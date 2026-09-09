@@ -1,9 +1,20 @@
 #!/usr/bin/make -f
+# -*- makefile -*-
+# Uncomment this to turn on verbose mode.
+# export DH_VERBOSE=1
 
-LDFLAGS += -Wl,--as-needed
+# see FEATURE AREAS in dpkg-buildflags(1)
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# see ENVIRONMENT in dpkg-buildflags(1)
+# package maintainers to append CFLAGS
+#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+# package maintainers to append LDFLAGS
+export DEB_LDFLAGS_MAINT_APPEND =
+
 
 %:
-	dh $@ --parallel --with autoreconf
+	dh $@
 
 
 PROJECT="bs2b/libbs2b"
@@ -19,10 +30,3 @@ get-orig-source:
 	mv $(PACKAGE)-$(VERSION) $(PACKAGE)_$(VERSION)+dfsg.orig
 	tar zcf ../$(PACKAGE)_$(VERSION)+dfsg.orig.tar.gz $(PACKAGE)_$(VERSION)+dfsg.orig
 	rm -r $(PACKAGE)_$(VERSION)+dfsg.orig $(PACKAGE)-$(VERSION).tar.gz
-
-override_dh_auto_configure:
-	dh_auto_configure -- --libdir="\$${prefix}/lib/$(DEB_HOST_MULTIARCH)"
-
-override_dh_auto_clean:
-	dh_auto_clean
-	rm -f config.log
