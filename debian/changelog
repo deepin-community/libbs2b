@@ -1,8 +1,60 @@
-libbs2b (3.1.0+dfsg-2.2-deepin1) unstable; urgency=medium
+libbs2b (3.1.0+dfsg-8) unstable; urgency=medium
 
-  * Rebuild
+  * QA upload.
 
- -- Deepin Packages Builder <packages@deepin.org>  Fri, 11 Nov 2022 17:58:48 +0800
+  [ Roman Lebedev ]
+  * debian/patches/no-fp-clipping.patch: Don't clip floating point samples.
+    This helps mitigate some issue in Strawberry media player.
+
+ -- Boyuan Yang <byang@debian.org>  Fri, 08 Mar 2024 18:41:17 -0500
+
+libbs2b (3.1.0+dfsg-7) unstable; urgency=medium
+
+  * QA upload.
+
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
+  * Use secure URI in Homepage field.
+  * Update standards version to 4.6.1, no changes needed.
+
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Wed, 02 Nov 2022 21:47:49 +0000
+
+libbs2b (3.1.0+dfsg-6) unstable; urgency=medium
+
+  * QA upload.
+  * Add pkg-config as BD. Closes: #1020008
+
+ -- Håvard F. Aasen <havard.f.aasen@pfft.no>  Wed, 21 Sep 2022 23:54:59 +0200
+
+libbs2b (3.1.0+dfsg-5) unstable; urgency=medium
+
+  * QA upload.
+  * Source-only upload.
+  * debian/control: Use "Rules-Requires-Root: no".
+
+ -- Boyuan Yang <byang@debian.org>  Mon, 14 Mar 2022 14:02:57 -0400
+
+libbs2b (3.1.0+dfsg-4) unstable; urgency=medium
+
+  * QA upload.
+  * debian/: Bump debhelper compat to v13.
+  * debian/control: Apply "wrap-and-sort -abst".
+  * Bump Standards-Version to 4.6.0.
+  * debian/rules: Enable full hardening.
+  * debian/copyright: Refresh information.
+  * Add new binary package libbs2b-bin for binary tools.
+
+ -- Boyuan Yang <byang@debian.org>  Sun, 13 Mar 2022 12:10:23 -0400
+
+libbs2b (3.1.0+dfsg-3) unstable; urgency=medium
+
+  * QA upload.
+  * Orphan the package via ITS process. (Closes: #1004890)
+  * debian/control: Set maintainer to Debian QA Group.
+  * debian/control: Use Priority: optional.
+  * debian/control: Update Vcs-* fields.
+
+ -- Boyuan Yang <byang@debian.org>  Wed, 23 Feb 2022 20:38:51 -0500
 
 libbs2b (3.1.0+dfsg-2.2) unstable; urgency=medium
 
@@ -22,7 +74,7 @@ libbs2b (3.1.0+dfsg-2.1) unstable; urgency=medium
     work.
   * Apply "format security" warning/error fix from Ilya Barygin. I don't think
     it will actually cause a security issue in this context and i'm not sure if
-    it will cause a FTBFS in debian (apparently it didn't back in 2011) but it's 
+    it will cause a FTBFS in debian (apparently it didn't back in 2011) but it's
     certainly horrible coding practice to pass a string that is not explicitly
     intended to be a format string to the first parameter of a printf so may
     as well fix it. (Closes: #646327)
