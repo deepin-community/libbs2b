@@ -1,3 +1,9 @@
+libbs2b (3.1.0+dfsg-8-deepin1) unstable; urgency=medium
+
+  * Bump version to 3.1.0+dfsg-8-deepin1 to avoid downgrading.
+
+ -- Tianyu Chen <sweetyfish@deepin.org>  Wed, 09 Sep 2026 18:29:25 +0800
+
 libbs2b (3.1.0+dfsg-8) unstable; urgency=medium
 
   * QA upload.
